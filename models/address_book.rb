@@ -1,5 +1,9 @@
 require_relative 'entry'
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 19-models
  class AddressBook
    attr_accessor :entries
 
@@ -19,6 +23,7 @@ require_relative 'entry'
      end
 
      @entries.insert(index, Entry.new(name, phone_number, email))
+<<<<<<< HEAD
      @entries.size(index, Entry.new(name, phone_number, email))
    end
    def remove_entry(name, phone_number, email)
@@ -29,3 +34,8 @@ require_relative 'entry'
  end 
 
 
+=======
+   end
+ end 
+
+>>>>>>> 19-models

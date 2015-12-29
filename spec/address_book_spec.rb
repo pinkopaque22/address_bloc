@@ -35,6 +35,7 @@ require_relative '../models/address_book'
        expect(new_entry.phone_number).to eq('010.012.1815')
        expect(new_entry.email).to eq('augusta.king@lovelace.com')
      end
+<<<<<<< HEAD
      describe "#remove_entry" do
       it "removes entry from the address book" do
           book = AddressBook.new
@@ -43,6 +44,8 @@ require_relative '../models/address_book'
           
           expect(book.entries.size).to eq(1)
       end 
+=======
+>>>>>>> 19-models
    end
  end
      
