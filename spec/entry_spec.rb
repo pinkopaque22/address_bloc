@@ -1,4 +1,5 @@
 require_relative '../models/entry'
+<<<<<<< HEAD
  
  RSpec.describe Entry do
  end
@@ -7,27 +8,46 @@ require_relative '../models/entry'
      it "should respond to name" do
        entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
        entry = Entry.new
+=======
+
+ RSpec.describe Entry do
+   describe "attributes" do
+     it "should respond to name" do
+       entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+>>>>>>> origin/master
        expect(entry).to respond_to(:name)
      end
 
      it "should respond to phone_number" do
        entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+<<<<<<< HEAD
        entry = Entry.new
+=======
+>>>>>>> origin/master
        expect(entry).to respond_to(:phone_number)
      end
 
      it "should respond to email" do
        entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+<<<<<<< HEAD
        entry = Entry.new
        expect(entry).to respond_to(:email)
      end
      describe "#to_s" do
+=======
+       expect(entry).to respond_to(:email)
+     end
+   end
+
+   describe "#to_s" do
+>>>>>>> origin/master
      it "prints an entry as a string" do
        entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
        expected_string = "Name: Ada Lovelace\nPhone Number: 010.012.1815\nEmail: augusta.king@lovelace.com"
 
        expect(entry.to_s).to eq(expected_string)
      end
+<<<<<<< HEAD
      RSpec.describe AddressBook do  
    describe "attributes" do
      it "should respond to entries" do
@@ -91,3 +111,7 @@ require_relative '../models/entry'
  
  
  
+=======
+   end
+ end
+>>>>>>> origin/master
