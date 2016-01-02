@@ -32,11 +32,4 @@ require "csv"
     @phone_number = phone_number
     @email = email
    end
- end 
 
-
-=======
-   end
- end 
-
->>>>>>> 19-models
