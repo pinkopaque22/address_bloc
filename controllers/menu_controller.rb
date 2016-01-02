@@ -14,13 +14,15 @@ require_relative '../models/address_book'
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 View Entry n"
+     puts "6 - Exit"
      print "Enter your selection: "
- 
- 
-     selection = gets.to_i
-     puts "You picked #{selection}"
      
+   
+     puts "You picked #{selection}"
+   end
+ end
+
    case selection
      when 1
        system "clear"
@@ -39,6 +41,10 @@ require_relative '../models/address_book'
        read_csv
        main_menu
      when 5
+       system "clear"
+       entry_n_submenu
+       main_menu
+     when 6
        puts "Good-bye!"
        exit(0)
      else
@@ -46,7 +52,20 @@ require_relative '../models/address_book'
        puts "Sorry, that is not a valid input"
        main_menu
    end
+  def entry_n_submenu
+   puts "Enter number to view:"
+   selection = gets.chomp.to_i
+   
+   if selection < @address_book.entries.count
+    puts @address_book.entries[selection]
+    puts "Press enter to return to the Main Menu"
+    gets.chomp
+    system "clear"
+   else
+    puts "#{selection} is not a valid entry"
+    entry_n_submenu
    end
+  end 
  
    def view_all_entries
     @address_book.entries.each do |entry|
@@ -54,32 +73,31 @@ require_relative '../models/address_book'
        puts entry.to_s
        entry_submenu(entry)
      end
- 
-     system "clear"
-     puts "End of entries"
    end
- 
+       system "clear"
+       puts "End of entries"
+
    def create_entry
-    system "clear"
-     puts "New AddressBloc Entry"
-     print "Name: "
-     name = gets.chomp
-     print "Phone number: "
-     phone = gets.chomp
-     print "Email: "
-     email = gets.chomp
-     @address_book.add_entry(name, phone, email)
- 
-     system "clear"
-     puts "New entry created"
+       system "clear"
+       puts "New AddressBloc Entry"
+       print "Name: "
+       name = gets.chomp
+       print "Phone number: "
+       phone = gets.chomp
+       print "Email: "
+       email = gets.chomp
+    
+    @address_book.add_entry(name, phone, email)
+    
+       system "clear"
+       puts "New entry created"
    end
- 
    def search_entries
    end
  
    def read_csv
    end
- end
+    
    def entry_submenu(entry)
      puts "n - next entry"
      puts "d - delete entry"
@@ -88,7 +106,7 @@ require_relative '../models/address_book'
 
      selection = gets.chomp
  
-     case selection
+   case selection
      when "n"
      when "d"
      when "e"
@@ -99,5 +117,5 @@ require_relative '../models/address_book'
        system "clear"
        puts "#{selection} is not a valid input"
        entries_submenu(entry)
-     end
+   end
    end

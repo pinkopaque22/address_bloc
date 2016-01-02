@@ -16,7 +16,9 @@ require_relative 'entry'
        end
        @entries.delete(delete_entry)
    end
-   
+   def selection
+     puts "pick your entry"
+   end
    def add_entry(name, phone_number, email)
 
      index = 0
@@ -27,7 +29,6 @@ require_relative 'entry'
        end
        index += 1
      end
-
      @entries.insert(index, Entry.new(name, phone_number, email))
    end 
  end 
