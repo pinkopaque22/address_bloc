@@ -1,9 +1,6 @@
 require_relative 'entry'
-<<<<<<< HEAD
+require "csv"
 
-=======
- 
->>>>>>> 19-models
  class AddressBook
    attr_accessor :entries
 
@@ -23,9 +20,13 @@ require_relative 'entry'
      end
 
      @entries.insert(index, Entry.new(name, phone_number, email))
-<<<<<<< HEAD
-     @entries.size(index, Entry.new(name, phone_number, email))
    end
+   def import_from_csv(file_name)
+   end
+    
+    
+     @entries.size(index, Entry.new(name, phone_number, email))
+ end
    def remove_entry(name, phone_number, email)
     @name = name
     @phone_number = phone_number
