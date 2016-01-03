@@ -18,12 +18,10 @@ require_relative '../models/address_book'
      puts "6 - Exit"
      print "Enter your selection: "
      
-   
+     selection = gets.to_i
      puts "You picked #{selection}"
-   end
- end
-
-   case selection
+     
+     case selection
      when 1
        system "clear"
        view_all_entries
@@ -51,8 +49,9 @@ require_relative '../models/address_book'
        system "clear"
        puts "Sorry, that is not a valid input"
        main_menu
+     end
    end
-  def entry_n_submenu
+   def entry_n_submenu
    puts "Enter number to view:"
    selection = gets.chomp.to_i
    
@@ -66,16 +65,6 @@ require_relative '../models/address_book'
     entry_n_submenu
    end
   end 
- 
-   def view_all_entries
-    @address_book.entries.each do |entry|
-       system "clear"
-       puts entry.to_s
-       entry_submenu(entry)
-     end
-   end
-       system "clear"
-       puts "End of entries"
 
    def create_entry
        system "clear"
@@ -92,6 +81,7 @@ require_relative '../models/address_book'
        system "clear"
        puts "New entry created"
    end
+   
    def search_entries
    end
  
@@ -105,7 +95,7 @@ require_relative '../models/address_book'
      puts "m - return to main menu"
 
      selection = gets.chomp
- 
+     
    case selection
      when "n"
      when "d"
@@ -117,5 +107,6 @@ require_relative '../models/address_book'
        system "clear"
        puts "#{selection} is not a valid input"
        entries_submenu(entry)
+     end
    end
-   end
+ end
