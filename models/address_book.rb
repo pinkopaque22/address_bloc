@@ -26,6 +26,7 @@ class AddressBook
      csv.each do |row|
        row_hash = row.to_hash
        add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
+     end
    end
    
    def interative_search
@@ -37,6 +38,7 @@ class AddressBook
      while lower <= upper
        mid = (lower + upper) / 2
        mid_name = @entries[mid].name
+        puts "looking for #{name} - comparing with #{mid_name}"
        if name == mid_name
          return @entries[mid]
        elsif name < mid_name
@@ -44,8 +46,7 @@ class AddressBook
        elsif name > mid_name
          lower = mid + 1
        end
-      return nil
      end
-   end
+     return nil
    end
 end
