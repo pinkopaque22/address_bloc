@@ -2,12 +2,8 @@ require_relative '../models/address_book'
 require 'csv'
 
  RSpec.describe AddressBook do 
-<<<<<<< HEAD
   let(:book) {AddressBook.new}
-  
-=======
- let(:book) {AddressBook.new}
->>>>>>> checkpoint-22-searching
+
   def check_entry(entry, expected_name, expected_number, expected_email)
     
     expect(entry.name).to eq expected_name
@@ -18,78 +14,51 @@ require 'csv'
   
    describe "#binary_search" do
      it "searches AddressBook for a non-existent entry" do
-<<<<<<< HEAD
+
        book.import_from_csv("entries_2.csv")
        entry = book.binary_search("Dan")
        expect(entry).to be_nil
      end
-     
-=======
        book.import_from_csv("entries.csv")
        entry = book.binary_search("Dan")
        expect(entry).to be_nil
      end
->>>>>>> checkpoint-22-searching
      it "searches AddressBook for Bill" do
        book.import_from_csv("entries.csv")
        entry = book.binary_search("Bill")
        expect(entry).to be_a Entry
        check_entry(entry, "Bill", "555-555-4854", "bill@blocmail.com")
      end
-<<<<<<< HEAD
-     
-=======
->>>>>>> checkpoint-22-searching
      it "searches AddressBook for Bob" do
        book.import_from_csv("entries.csv")
        entry = book.binary_search("Bob")
        expect(entry).to be_a Entry
        check_entry(entry, "Bob", "555-555-5415", "bob@blocmail.com")
      end
-<<<<<<< HEAD
- 
-=======
->>>>>>> checkpoint-22-searching
      it "searches AddressBook for Joe" do
        book.import_from_csv("entries.csv")
        entry = book.binary_search("Joe")
        expect(entry).to be_a Entry
        check_entry(entry, "Joe", "555-555-3660", "joe@blocmail.com")
      end
-<<<<<<< HEAD
- 
-=======
->>>>>>> checkpoint-22-searching
      it "searches AddressBook for Sally" do
        book.import_from_csv("entries.csv")
        entry = book.binary_search("Sally")
        expect(entry).to be_a Entry
        check_entry(entry, "Sally", "555-555-4646", "sally@blocmail.com")
      end
-<<<<<<< HEAD
- 
-=======
->>>>>>> checkpoint-22-searching
      it "searches AddressBook for Sussie" do
        book.import_from_csv("entries.csv")
        entry = book.binary_search("Sussie")
        expect(entry).to be_a Entry
        check_entry(entry, "Sussie", "555-555-2036", "sussie@blocmail.com")
      end
-<<<<<<< HEAD
-     
-=======
->>>>>>> checkpoint-22-searching
      it "searches AddressBook for Billy" do
        book.import_from_csv("entries.csv")
        entry = book.binary_search("Billy")
        expect(entry).to be_nil
-     end  
-<<<<<<< HEAD
-  
-=======
+     end 
    end
->>>>>>> checkpoint-22-searching
    describe "#import_from_csv" do
      it "imports the correct number of entries" do
        book.import_from_csv("entries.csv")
@@ -138,20 +107,15 @@ require 'csv'
        entry_three = book.entries[2]
        check_entry(entry_three, "Patricia", "555-555-0607", "patricia@patricia.com")
      end
-<<<<<<< HEAD
-  end
- end
-end
-
-=======
    end
-end
+
+
 
      
 
 
 
->>>>>>> checkpoint-22-searching
+
   
    
   
