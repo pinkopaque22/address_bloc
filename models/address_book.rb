@@ -1,7 +1,7 @@
 require_relative 'entry'
  require "csv"
 
- class AddressBook
+class AddressBook
    attr_accessor :entries
 
    def initialize
@@ -15,7 +15,7 @@ require_relative 'entry'
          break
        end
        index += 1
-     end
+       end
      @entries.insert(index, Entry.new(name, phone, email))
    end
 
@@ -26,9 +26,23 @@ require_relative 'entry'
        row_hash = row.to_hash
        add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
    end
-   end
+
    def binary_search(name)
-     return nil
+     lower = 0
+     upper = @entries.length - 1
+     while lower <= upper
+       mid = (lower + upper) / 2
+       mid_name = @entries[mid].name
+       if name == mid_name
+         return @entries[mid]
+       elsif name < mid_name
+         upper = mid - 1
+       elsif name > mid_name
+         lower = mid + 1
+       end
+     end
+      return nil
    end
- end
+   end
+end
 
