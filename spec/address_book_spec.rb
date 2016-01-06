@@ -1,5 +1,5 @@
 require_relative '../models/address_book'
- require 'csv'
+require 'csv'
 
  RSpec.describe AddressBook do 
   let(:book) {AddressBook.new}
@@ -9,7 +9,15 @@ require_relative '../models/address_book'
     expect(entry.phone_number).to eq expected_number
     expect(entry.email).to eq expected_email
   end
+  end
   
+   describe "#binary_search" do
+     it "searches AddressBook for a non-existent entry" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Dan")
+       expect(entry).to be_nil
+     end
+   end
    describe "#import_from_csv" do
      it "imports the correct number of entries" do
        book.import_from_csv("entries.csv")
@@ -17,16 +25,6 @@ require_relative '../models/address_book'
        book_size = book.entries.size
        expect(book_size).to eq 8
      end
-    end
-     
-   describe "#binary_search" do
-     it "searches AddressBook for a non-existent entry" do
-       book.import_from_csv("entries.csv")
-       entry = book.binary_search("Dan")
-       expect(entry).to be_nil
-     end
-    end
-     
      it "imports the 1st entry" do
        book.import_from_csv("entries.csv")
        entry_one = book.entries[0]
@@ -55,7 +53,7 @@ require_relative '../models/address_book'
      it "imports from 1st entry" do
        book.import_from_csv("entries_2.csv")
        entry_one = book.entries[0]
-       puts "book  is #{book.inspect}"
+       #puts "book  is #{book.inspect}"
        check_entry(entry_one, "Dan", "555-555-6500", "dan@dan.com")
      end
      it "imports from 2nd entry" do
@@ -68,9 +66,11 @@ require_relative '../models/address_book'
        entry_three = book.entries[2]
        check_entry(entry_thress, "Patricia", "555-555-0607", "patricia@patricia.com")
      end
+end
+
      
 
- end
+
 
   
    
