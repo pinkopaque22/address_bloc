@@ -2,7 +2,7 @@ require_relative '../models/address_book'
 require 'csv'
 
 RSpec.describe AddressBook do 
-  let(:book) { AddressBook.new }
+   let(:book) { AddressBook.new }
 
   def check_entry(entry, expected_name, expected_number, expected_email)
     expect(entry.name).to eq expected_name
@@ -10,16 +10,28 @@ RSpec.describe AddressBook do
     expect(entry.email).to eq expected_email
   end
 
- 
-  describe "#binary_search" do
-    it "it searches for non-existent entries" do
+  describe "#iterative_search" do
+    it "searches for non-existent entries" do
       book.import_from_csv("entries.csv")
-      entry = book.binary_search("Dan")
+      entry = book.iterative_search("Dan")
+      expect(entry).to be_nil
+     end
+    it "searches AddressBook for Bob" do
+        book.import_from_csv("entries.csv") 
+        entry = book.iterative_search("Bill")
+        expect(entry).to be_a Entry
+        check_entry(entry, "Bill","555-555-4854", "bill@blocmail.com")
+    end
+  end
+  describe "#iterative_search" do
+    it "searches for non-existent entries" do
+      book.import_from_csv("entries.csv")
+      entry = book.iterative_search("Dan")
       expect(entry).to be_nil
     end
     it "searches AddressBook for Bill" do
       book.import_from_csv("entries.csv")
-      entry = book.binary_search("Bill")
+      entry = book.iterative_search("Bill")
       expect(entry).to be_a Entry
       check_entry(entry, "Bill", "555-555-4854", "bill@blocmail.com")
     end
