@@ -16,7 +16,7 @@ class MenuController
      print "Enter your selection:"
      
      selection = gets.to_i
-     puts "You picked #{selection}"
+     puts "You picked #{selection}" #doesn't put a message
      case selection
       when 1
        system "clear"
@@ -62,9 +62,9 @@ class MenuController
      end
    end 
 
-   def create_entry
+   def create_entry #this  whole method works
        system "clear"
-       puts "New AddressBloc Entry"
+       puts "New AddressBloc Entry" 
        print "Name: "
        name = gets.chomp
        print "Phone number: "
@@ -73,7 +73,7 @@ class MenuController
        email = gets.chomp
        @address_book.add_entry(name, phone, email)
     
-       system "clear"
+       system "clear" 
        puts "New entry created"
    end
    
@@ -100,7 +100,7 @@ class MenuController
    end
    
    def search_entries
-    print "Search by name: "
+    print "Search by name:"
      name = gets.chomp
      match = @address_book.binary_search(name)
      system "clear"
@@ -110,7 +110,7 @@ class MenuController
      else
        puts "No match found for #{name}"
      end
-   end
+   
    def search_submenu(entry)
      puts "\nd - delete entry"
      puts "e - edit this entry"
@@ -138,7 +138,7 @@ class MenuController
      end
    end
  
-   def read_csv
+   def read_csv #this method works but says no csv found prints rescue statement
        print "Enter CSV file to import: "
        file_name = gets.chomp
      if file_name.empty?
@@ -151,7 +151,7 @@ class MenuController
        system "clear"
        puts "#{entry_count} new entries added from #{file_name}"
      rescue
-       puts "#{file_name} is not a valid CSV file, please enter the name of a valid CSV file"
+       puts "#{file_name} is not a valid CSV file, please enter the name of a valid CSV file" 
        read_csv
      end
    end
