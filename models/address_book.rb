@@ -7,6 +7,10 @@ class AddressBook
    def initialize
      @entries = []
    end
+   
+   def destroy
+    @entries = []
+   end
 
    def add_entry(name, phone, email)
      index = 0
@@ -26,7 +30,14 @@ class AddressBook
        row_hash = row.to_hash
        add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
    end
-
+   def iterative_search(name)
+    @entries.each do |entry|
+      if entry.name == name
+        return entry
+      end
+    end
+    return nil
+   end
    def binary_search(name)
      lower = 0
      upper = @entries.length - 1
