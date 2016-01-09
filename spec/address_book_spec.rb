@@ -8,6 +8,16 @@ RSpec.describe AddressBook do
     expect(entry.phone_number).to eq expected_number
     expect(entry.email).to eq expected_email
   end
+    describe "#destroy" do
+     it "destroys all entries" do
+      book.add_entry("Dan", "555-555-6500", "Dan@dan.com")
+      book.add_entry("Nia", "555-555-0514", "Nia@nia.com")
+      book.add_entry("Patricia", "555-555-0607", "Patricia@patricia.com")
+      
+      book.destroy
+      expect(book.entries.size).to eq 0
+     end
+    end
     describe "#binary_search" do
      it "searches AddressBook for a non-existent entry" do
        book.import_from_csv("entries.csv")
